@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+/* El modo oscuro solo aplica a la landing (.landing); el panel admin y los formularios son claros. */
+@custom-variant dark (&:where(.dark .landing, .dark .landing *));
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-dm-serif), Georgia, serif;
+
+  --color-roseBrand-50: #fdf8f9;
+  --color-roseBrand-100: #f9eef1;
+  --color-roseBrand-200: #f3dbe1;
+  --color-roseBrand-300: #e7b8c4;
+  --color-roseBrand-500: #c87a8e;
+  --color-roseBrand-600: #b06175;
+  --color-roseBrand-700: #a3566a; /* AA sobre blanco y nude (5.1:1 / 4.8:1) */
+  --color-roseBrand-800: #5a2d38;
+  --color-roseBrand-900: #3d1c24;
+
+  --color-nude-50: #faf7f5;
+  --color-nude-100: #f4ede7;
+  --color-nude-200: #e8dbd1;
+  --color-nude-300: #d7c3b4;
+
+  --shadow-bento: 0 4px 20px -2px rgba(90, 45, 56, 0.05), 0 2px 6px -1px rgba(90, 45, 56, 0.03);
+  --shadow-bento-hover: 0 10px 25px -3px rgba(90, 45, 56, 0.08), 0 4px 10px -2px rgba(90, 45, 56, 0.04);
+  --shadow-soft: 0 24px 70px rgba(90, 45, 56, 0.1);
+  --shadow-card: 0 12px 40px rgba(90, 45, 56, 0.08);
+}
+
+@layer base {
+  body {
+    background: var(--color-nude-50);
+    color: var(--color-roseBrand-800);
+    font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  }
+
+  h1, h2 {
+    font-family: var(--font-dm-serif), Georgia, serif;
+    font-weight: 400;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ---------- Landing ---------- */
+.landing {
+  background: radial-gradient(circle at 80% 8%, rgba(200, 122, 142, 0.12), transparent 26rem), #faf7f5;
+  color-scheme: light;
+}
+.dark .landing {
+  background: radial-gradient(circle at 80% 8%, rgba(200, 122, 142, 0.11), transparent 26rem), #21171a;
+  color-scheme: dark;
+}
+
+.hero-grid {
+  background-image: linear-gradient(rgba(90, 45, 56, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(90, 45, 56, 0.045) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: linear-gradient(to bottom, black 35%, transparent 100%);
+}
+.dark .hero-grid {
+  background-image: linear-gradient(rgba(243, 219, 225, 0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(243, 219, 225, 0.035) 1px, transparent 1px);
+}
+
+.blob { animation: float 8s ease-in-out 1.2s infinite; }
+.blob-delay { animation-delay: -3s; }
+@keyframes float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -12px, 0); }
+}
+
+/* Entrada del hero solo con CSS (no depende de JS: no retrasa el LCP). */
+.hero-in { animation: rise 0.6s ease both; }
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Secciones bajo el pliegue: aparecen al hacer scroll (ver components/landing/RevealObserver). */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.is-visible { opacity: 1; transform: none; }
+
+.photo-placeholder {
+  background: linear-gradient(145deg, rgba(200, 122, 142, 0.24), rgba(244, 237, 231, 0.85)),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0, rgba(255, 255, 255, 0.25) 1px, transparent 1px, transparent 12px);
+}
+.dark .photo-placeholder {
+  background: linear-gradient(145deg, rgba(200, 122, 142, 0.22), rgba(58, 39, 43, 0.95)),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0, rgba(255, 255, 255, 0.04) 1px, transparent 1px, transparent 12px);
+}
+
+.noise { position: relative; isolation: isolate; }
+.noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  z-index: -1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+}
+
+/* Secciones bajo el pliegue: el navegador omite su layout/paint hasta que se acercan. */
+.defer-render { content-visibility: auto; contain-intrinsic-size: auto 900px; }
+
+.nav-scrolled { box-shadow: 0 8px 30px rgba(61, 28, 36, 0.08); backdrop-filter: blur(18px); }
+.dark /* Secciones bajo el pliegue: el navegador omite su layout/paint hasta que se acercan. */
+.defer-render { content-visibility: auto; contain-intrinsic-size: auto 900px; }
+
+.nav-scrolled { box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

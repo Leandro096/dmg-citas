@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full bg-[#f8f4f0]">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UI Design Guide - Dra. Mirian Galán | Nutrición & Estética</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Iconify Framework Component -->
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          },
+          colors: {
+            roseBrand: {
+              50:  '#fdf8f9',
+              100: '#f9eef1',
+              200: '#f3dbe1',
+              300: '#e7b8c4',
+              500: '#c87a8e', // Rosa Dusty Principal
+              600: '#b06175', // Hover
+              800: '#5a2d38', // Texto Oscuro
+              900: '#3d1c24',
+            },
+            nude: {
+              50:  '#fbf8f5',
+              100: '#f5eee8',
+              200: '#e8dad0',
+            }
+          },
+          boxShadow: {
+            'bento': '0 4px 20px -2px rgba(90, 45, 56, 0.05), 0 2px 6px -1px rgba(90, 45, 56, 0.03)',
+            'bento-hover': '0 10px 25px -3px rgba(90, 45, 56, 0.08), 0 4px 10px -2px rgba(90, 45, 56, 0.04)',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #5a2d38;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+    }
+  </style>
+</head>
+
+<body class="p-4 md:p-8 min-h-screen antialiased">
+
+  <header class="max-w-7xl mx-auto mb-8 border-b border-roseBrand-200/60 pb-4 flex justify-between items-center">
+    <div>
+      <span class="text-xs uppercase tracking-widest text-roseBrand-500 font-semibold">Brand & Design System</span>
+      <h1 class="text-3xl text-roseBrand-900 font-semibold">Dra. Mirian Galán - Nutrición Clínica & Estética</h1>
+    </div>
+    <div class="flex items-center gap-2 text-sm bg-roseBrand-100/70 px-3.5 py-1.5 rounded-full border border-roseBrand-200 text-roseBrand-800">
+      <iconify-icon icon="lucide:sparkles" class="text-roseBrand-500 text-base"></iconify-icon>
+      <span class="font-medium text-xs">Iconify System & Rose Aesthetic</span>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto space-y-12">
+
+    <!-- SECCIÓN 1: BENTO GRID LANDING & BOOKING WIDGET -->
+    <section>
+      <div class="flex items-center gap-2 mb-4">
+        <iconify-icon icon="lucide:layout-grid" class="text-roseBrand-500 text-xl"></iconify-icon>
+        <h2 class="text-2xl font-semibold text-roseBrand-900">1. Booking Widget (Bento Layout)</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-5">
+        
+        <!-- Tarjeta 1: Perfil de la Dra. Mirian Galán -->
+        <div class="md:col-span-4 bg-nude-50 rounded-2xl p-6 border border-roseBrand-200/60 shadow-bento flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="relative w-28 h-28 mx-auto rounded-2xl overflow-hidden border-2 border-roseBrand-200 shadow-sm">
+              <img src="https://images.unsplash.com/photo-1594824813566-88855779663d?q=80&w=400&auto=format&fit=crop" 
+                   alt="Dra. Mirian Galán" 
+                   class="w-full h-full object-cover">
+            </div>
+            
+            <div class="text-center">
+              <h3 class="text-2xl font-semibold text-roseBrand-900">Dra. Mirian Galán</h3>
+              <p class="text-xs font-semibold text-roseBrand-500 uppercase tracking-wider mt-0.5">Nutricionista & Nutrióloga Clínica</p>
+            </div>
+
+            <p class="text-sm text-roseBrand-800/80 leading-relaxed text-center">
+              Especialista en composición corporal, nutrición clínica, tratamientos estéticos integrales y educación nutricional.
+            </p>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-roseBrand-100 space-y-2 text-sm text-roseBrand-800">
+            <div class="flex items-center gap-2">
+              <iconify-icon icon="lucide:sparkle" class="text-roseBrand-500 text-lg"></iconify-icon>
+              <span>Consulta Nutricional: <strong>RD$ 4,000</strong></span>
+            </div>
+            <div class="flex items-center gap-2">
+              <iconify-icon icon="lucide:map-pin" class="text-roseBrand-500 text-lg"></iconify-icon>
+              <span>Santo Domingo, República Dominicana</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta 2: Selector de Fechas (Calendario) -->
+        <div class="md:col-span-4 bg-nude-50 rounded-2xl p-6 border border-roseBrand-200/60 shadow-bento flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-4">
+              <h4 class="font-semibold text-roseBrand-900 flex items-center gap-2 text-lg">
+                <iconify-icon icon="lucide:calendar-heart" class="text-roseBrand-500"></iconify-icon>
+                Selecciona tu Fecha
+              </h4>
+              <iconify-icon icon="lucide:clock" class="text-roseBrand-500/70"></iconify-icon>
+            </div>
+
+            <!-- Header Calendario -->
+            <div class="flex justify-between items-center my-3 px-1">
+              <button class="p-1 hover:bg-roseBrand-100 rounded-lg transition-colors text-roseBrand-800">
+                <iconify-icon icon="lucide:chevron-left"></iconify-icon>
+              </button>
+              <span class="font-semibold text-sm text-roseBrand-900">Octubre 2026</span>
+              <button class="p-1 hover:bg-roseBrand-100 rounded-lg transition-colors text-roseBrand-800">
+                <iconify-icon icon="lucide:chevron-right"></iconify-icon>
+              </button>
+            </div>
+
+            <!-- Grilla Calendario -->
+            <div class="grid grid-cols-7 gap-1 text-center text-xs mb-2 text-roseBrand-800/60 font-medium">
+              <span>Lun</span><span>Mar</span><span>Mié</span><span>Jue</span><span>Vie</span><span>Sáb</span><span>Dom</span>
+            </div>
+            
+            <div class="grid grid-cols-7 gap-1 text-center text-sm font-medium">
+              <span class="p-2 text-roseBrand-800/30">28</span>
+              <span class="p-2 text-roseBrand-800/30">29</span>
+              <span class="p-2 text-roseBrand-800">1</span>
+              <span class="p-2 text-roseBrand-800">2</span>
+              <span class="p-2 text-roseBrand-800">3</span>
+              <span class="p-2 text-roseBrand-800">4</span>
+              <span class="p-2 text-roseBrand-800">5</span>
+              
+              <span class="p-2 text-roseBrand-800">6</span>
+              <span class="p-2 text-roseBrand-800">7</span>
+              <span class="p-2 text-roseBrand-800">8</span>
+              <span class="p-2 text-roseBrand-800">9</span>
+              <span class="p-2 text-roseBrand-800">10</span>
+              <span class="p-2 text-roseBrand-800">11</span>
+              <span class="p-2 text-roseBrand-800">12</span>
+
+              <span class="p-2 text-roseBrand-800">13</span>
+              <!-- Día Seleccionado -->
+              <span class="p-2 bg-roseBrand-500 text-white font-semibold rounded-xl shadow-sm cursor-pointer">14</span>
+              <span class="p-2 bg-roseBrand-100 text-roseBrand-800 rounded-xl cursor-pointer hover:bg-roseBrand-200">15</span>
+              <span class="p-2 bg-roseBrand-100 text-roseBrand-800 rounded-xl cursor-pointer hover:bg-roseBrand-200">16</span>
+              <span class="p-2 text-roseBrand-800">17</span>
+              <span class="p-2 text-roseBrand-800">18</span>
+              <span class="p-2 text-roseBrand-800">19</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta 3: Formulario del Paciente -->
+        <div class="md:col-span-4 bg-nude-50 rounded-2xl p-6 border border-roseBrand-200/60 shadow-bento space-y-3">
+          <h4 class="font-semibold text-roseBrand-900 flex items-center gap-2 mb-2 text-lg">
+            <iconify-icon icon="lucide:user-check" class="text-roseBrand-500"></iconify-icon>
+            Datos de la Paciente
+          </h4>
+
+          <div class="space-y-2.5 text-sm">
+            <div class="relative">
+              <iconify-icon icon="lucide:user" class="absolute left-3 top-3 text-roseBrand-500/70 text-base"></iconify-icon>
+              <input type="text" placeholder="Nombre Completo" value="Laura Martínez"
+                     class="w-full pl-9 pr-3 py-2 bg-white rounded-xl border border-roseBrand-200 focus:outline-none focus:ring-2 focus:ring-roseBrand-500 text-roseBrand-900">
+            </div>
+
+            <div class="relative">
+              <iconify-icon icon="lucide:mail" class="absolute left-3 top-3 text-roseBrand-500/70 text-base"></iconify-icon>
+              <input type="email" placeholder="Correo Electrónico" value="laura.martinez@gmail.com"
+                     class="w-full pl-9 pr-3 py-2 bg-white rounded-xl border border-roseBrand-200 focus:outline-none focus:ring-2 focus:ring-roseBrand-500 text-roseBrand-900">
+            </div>
+
+            <div class="relative">
+              <iconify-icon icon="lucide:phone" class="absolute left-3 top-3 text-roseBrand-500/70 text-base"></iconify-icon>
+              <input type="tel" placeholder="WhatsApp" value="+1 (809) 555-0144"
+                     class="w-full pl-9 pr-3 py-2 bg-white rounded-xl border border-roseBrand-200 focus:outline-none focus:ring-2 focus:ring-roseBrand-500 text-roseBrand-900">
+            </div>
+
+            <div class="relative">
+              <iconify-icon icon="lucide:apple" class="absolute left-3 top-3 text-roseBrand-500/70 text-base"></iconify-icon>
+              <textarea placeholder="Objetivo o motivo de la consulta" rows="2"
+                        class="w-full pl-9 pr-3 py-2 bg-white rounded-xl border border-roseBrand-200 focus:outline-none focus:ring-2 focus:ring-roseBrand-500 text-roseBrand-900 text-xs">Evaluación nutricional integral y plan de alimentación personalizado.</textarea>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tarjeta 4: Horarios Disponibles (Slots) -->
+        <div class="md:col-span-6 bg-nude-50 rounded-2xl p-6 border border-roseBrand-200/60 shadow-bento">
+          <div class="flex justify-between items-center mb-4">
+            <h4 class="font-semibold text-roseBrand-900 flex items-center gap-2 text-lg">
+              <iconify-icon icon="lucide:clock" class="text-roseBrand-500"></iconify-icon>
+              Horarios Disponibles
+            </h4>
+            <span class="text-xs text-roseBrand-500 font-medium">Miércoles 14 de Octubre</span>
+          </div>
+
+          <div class="grid grid-cols-3 gap-2.5 text-sm">
+            <button class="py-2.5 px-3 bg-white border border-roseBrand-200 text-roseBrand-800 rounded-xl hover:border-roseBrand-500 transition-all font-medium text-center">
+              09:00 AM
+            </button>
+            
+            <!-- Seleccionado -->
+            <button class="py-2.5 px-3 bg-roseBrand-500 border border-roseBrand-500 text-white rounded-xl font-semibold shadow-sm text-center flex items-center justify-center gap-1">
+              <iconify-icon icon="lucide:check-circle-2" class="text-xs"></iconify-icon>
+              10:30 AM
+            </button>
+
+            <!-- Ocupado -->
+            <button disabled class="py-2.5 px-3 bg-nude-100 border border-nude-200 text-roseBrand-800/30 rounded-xl line-through cursor-not-allowed text-center">
+              11:30 AM
+            </button>
+
+            <button class="py-2.5 px-3 bg-white border border-roseBrand-200 text-roseBrand-800 rounded-xl hover:border-roseBrand-500 transition-all font-medium text-center">
+              02:30 PM
+            </button>
+
+            <button class="py-2.5 px-3 bg-white border border-roseBrand-200 text-roseBrand-800 rounded-xl hover:border-roseBrand-500 transition-all font-medium text-center">
+              04:00 PM
+            </button>
+          </div>
+        </div>
+
+        <!-- Tarjeta 5: Resumen & Confirmación -->
+        <div class="md:col-span-6 bg-nude-50 rounded-2xl p-6 border border-roseBrand-200/60 shadow-bento flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-3">
+              <h4 class="font-semibold text-roseBrand-900 flex items-center gap-2 text-lg">
+                <iconify-icon icon="lucide:receipt" class="text-roseBrand-500"></iconify-icon>
+                Resumen de Cita
+              </h4>
+              <span class="flex items-center gap-1 text-xs bg-roseBrand-100 text-roseBrand-800 px-2.5 py-0.5 rounded-full font-medium">
+                <iconify-icon icon="lucide:building-2"></iconify-icon>
+                Presencial
+              </span>
+            </div>
+
+            <div class="space-y-1.5 text-sm text-roseBrand-800">
+              <div class="flex justify-between">
+                <span class="text-roseBrand-800/70">Fecha:</span>
+                <span class="font-medium">14 de Octubre, 2026</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-roseBrand-800/70">Hora:</span>
+                <span class="font-medium">10:30 AM</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-roseBrand-800/70">Ubicación:</span>
+                <span class="font-medium text-right">Consultorio Nutricional, Santo Domingo</span>
+              </div>
+              <div class="flex justify-between pt-2 border-t border-roseBrand-100 font-semibold text-roseBrand-900">
+                <span>Inversión:</span>
+                <span class="text-roseBrand-500 text-base">RD$ 4,000</span>
+              </div>
+            </div>
+          </div>
+
+          <button class="w-full mt-4 bg-roseBrand-500 hover:bg-roseBrand-600 text-white font-semibold py-3 px-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+            <iconify-icon icon="lucide:calendar-plus" class="text-lg"></iconify-icon>
+            <span>Reservar Cita y Sincronizar con Google Calendar</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: MODAL CONFIRMACIÓN & ADMIN -->
+    <section class="grid grid-cols-1 md:grid-cols-12 gap-8">
+      
+      <!-- Modal Confirmada -->
+      <div class="md:col-span-5 space-y-3">
+        <div class="flex items-center gap-2 mb-2">
+          <iconify-icon icon="lucide:check-circle" class="text-roseBrand-500 text-xl"></iconify-icon>
+          <h2 class="text-2xl font-semibold text-roseBrand-900">2. Modal 'Cita Agendada'</h2>
+        </div>
+
+        <div class="bg-nude-50 rounded-2xl p-6 border border-roseBrand-200 shadow-bento text-center space-y-4">
+          <div class="w-12 h-12 bg-roseBrand-100 text-roseBrand-500 rounded-full flex items-center justify-center mx-auto text-2xl">
+            <iconify-icon icon="lucide:heart-handshake"></iconify-icon>
+          </div>
+
+          <div>
+            <h3 class="text-2xl font-semibold text-roseBrand-900">¡Cita Confirmada, Laura!</h3>
+            <p class="text-xs text-roseBrand-800/70 mt-1">Te hemos enviado la confirmación y el recordatorio a tu correo.</p>
+          </div>
+
+          <div class="bg-white p-4 rounded-xl border border-roseBrand-100 text-left text-xs space-y-2 text-roseBrand-800">
+            <div class="flex items-center gap-2">
+              <iconify-icon icon="lucide:calendar" class="text-roseBrand-500 text-base"></iconify-icon>
+              <span>Miércoles, 14 de Octubre de 2026 - 10:30 AM</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <iconify-icon icon="lucide:map-pin" class="text-roseBrand-500 text-base"></iconify-icon>
+              <span>Santo Domingo, República Dominicana</span>
+            </div>
+          </div>
+
+          <a href="#" class="w-full bg-roseBrand-500 hover:bg-roseBrand-600 text-white text-xs font-semibold py-2.5 rounded-xl transition-all flex items-center justify-center gap-2">
+            <iconify-icon icon="logos:google-calendar" class="text-base"></iconify-icon>
+            Agregar a mi Google Calendar
+          </a>
+        </div>
+      </div>
+
+      <!-- Admin Panel -->
+      <div class="md:col-span-7 space-y-3">
+        <div class="flex items-center gap-2 mb-2">
+          <iconify-icon icon="lucide:shield-check" class="text-roseBrand-500 text-xl"></iconify-icon>
+          <h2 class="text-2xl font-semibold text-roseBrand-900">3. Admin Dashboard (Dra. Mirian Galán)</h2>
+        </div>
+
+        <div class="bg-nude-50 rounded-2xl p-6 border border-roseBrand-200/60 shadow-bento space-y-4">
+          <div class="flex justify-between items-center border-b border-roseBrand-100 pb-3">
+            <div>
+              <h4 class="font-semibold text-roseBrand-900">Gestión de Agenda & Pacientes</h4>
+              <p class="text-xs text-roseBrand-800/60">Monitoreo de citas sincronizadas con Google Calendar.</p>
+            </div>
+            <span class="text-xs bg-roseBrand-100 text-roseBrand-800 px-2.5 py-1 rounded-full font-medium">Rol: DOCTOR</span>
+          </div>
+
+          <div class="overflow-x-auto">
+            <table class="w-full text-left text-xs">
+              <thead class="text-roseBrand-800/60 border-b border-roseBrand-200">
+                <tr>
+                  <th class="pb-2">Paciente</th>
+                  <th class="pb-2">Fecha</th>
+                  <th class="pb-2">Hora</th>
+                  <th class="pb-2">Estado</th>
+                  <th class="pb-2 text-right">Acciones</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-roseBrand-100 text-roseBrand-800">
+                <tr>
+                  <td class="py-2.5 font-medium">Laura Martínez</td>
+                  <td class="py-2.5">14 Oct 2026</td>
+                  <td class="py-2.5">10:30 AM</td>
+                  <td class="py-2.5">
+                    <span class="bg-roseBrand-100 text-roseBrand-800 px-2 py-0.5 rounded-md font-medium text-[10px]">CONFIRMED</span>
+                  </td>
+                  <td class="py-2.5 text-right space-x-1">
+                    <button class="p-1 text-roseBrand-500 hover:bg-roseBrand-100 rounded"><iconify-icon icon="lucide:eye"></iconify-icon></button>
+                    <button class="p-1 text-red-500 hover:bg-red-50 rounded"><iconify-icon icon="lucide:trash-2"></iconify-icon></button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+</body>
+</html>
