@@ -236,7 +236,7 @@ export default function LandingPage() {
         </section>
 
         {/* ============ CONTACTO ============ */}
-        <section id="contacto" className={`defer-render ${wrap} pb-24 lg:pb-32`}>
+        <section id="contacto" className={`defer-render ${wrap} pb-24 lg:pb-32 pt-24`}>
           <div className="relative overflow-hidden rounded-[2rem] bg-nude-100 px-6 py-12 sm:px-10 lg:px-16 lg:py-16 dark:bg-[#34252a]">
             <div className="absolute -right-20 -top-24 h-72 w-72 rounded-full bg-roseBrand-200/60 blur-2xl dark:bg-roseBrand-500/10" />
             <div className="absolute -bottom-24 -left-16 h-60 w-60 rounded-full bg-white/60 blur-2xl dark:bg-white/5" />
@@ -250,11 +250,6 @@ export default function LandingPage() {
                     <Icon icon="lucide:message-circle" className="h-4 w-4" /> Escribir por WhatsApp
                   </a>
                 </div>
-                <p className={`mt-5 text-sm ${muted}`}>
-                  WhatsApp <strong className="font-semibold">{CONTACT.whatsappNumber}</strong> · <span>{CONTACT.whatsappUsername}</span>
-                  <br />
-                  Instagram <a href={CONTACT.instagram} target="_blank" rel="noreferrer" className="font-semibold underline">{CONTACT.instagramHandle}</a>
-                </p>
               </div>
 
               <div className="reveal rounded-[1.5rem] border border-white/70 bg-white/75 p-6 shadow-card backdrop-blur dark:border-white/10 dark:bg-[#21171a]/50">
